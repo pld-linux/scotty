@@ -49,7 +49,7 @@ the Tnm Tcl extension.
 cd unix
 autoconf
 %configure
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -65,7 +65,7 @@ export TCLLIBPATH
 %{_bindir}/scotty%{version}
 EOF
 
-ln -s tkined%{tkined_version} $RPM_BUILD_ROOT%{_bindir}/tkined
+ln -sf tkined%{tkined_version} $RPM_BUILD_ROOT%{_bindir}/tkined
 
 perl -pi -e "s|$RPM_BUILD_ROOT||g" \
 	$RPM_BUILD_ROOT%{_libdir}/{tkined%{tkined_version},tnm%{version}}/pkgIndex.tcl
