@@ -8,8 +8,6 @@ Version:	3.0.0
 Release:	0.%{snapdate}.1
 License:	Free
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 Source0:	%{name}-%{snap}.tar.gz
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
