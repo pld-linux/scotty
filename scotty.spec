@@ -15,7 +15,7 @@ Version:	3.0.0
 Release:	0.%{snapdate}.4
 License:	Free
 Group:		Applications/Networking
-Source0:	%{name}-%{snap}.tar.gz
+Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/devel/%{name}-%{snap}.tar.gz
 # Source0-md5:	ca39ecfaa32f3c5defa81974e8d9ebe2
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
 Source1:	tkined.desktop
