@@ -1,16 +1,18 @@
 %define	snap		00-02-21
 %define	snapdate	20000221
 %define	tkined_version	1.5.0
-Summary:	Tcl extension to build network management applications using Tcl (and Tk).
+Summary:	Tcl extension to build network management applications using Tcl (and Tk)
+Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
 Release:	0.%{snapdate}.1
-Copyright:	Free
+License:	Free
 Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 Source0:	%{name}-%{snap}.tar.gz
+#Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-install.patch
 BuildRequires:	tcl-devel >= 8.2
@@ -39,6 +41,28 @@ configuration. The most important feature of Tkined is its programming
 interface which allows network management applications to extend the
 capabilities of Tkined. Most applications for Tkined are written using
 the Tnm Tcl extension.
+
+%description -l pl
+Scotty jest rozszerzeniem Tcl do budowania aplikacji do zarz±dzania
+sieci± przy u¿yciu Tcl (i Tk). Scotty udostêpnia nowe polecenia Tcl
+do:
+	- wysy³ania i odbierania pakietów ICMP\
+	- odpytywania DNS
+	- dostêpu do gniazdek UDP
+	- testowania i u¿ywania niektórych Sun RPC
+	- ¶ci±gania i serwowania dokumentów po HTTP
+	- wysy³ania i odbierania komunikatów SNMP (v1, v2C, v3)
+	- pisania agentów SNMP
+	- parsowania i dostêpu do definicji SNMP MIB
+	- kolejkowania zadañ do regularnego wykonywania
+	- realizacji programowania sterowanego zdarzeniami na mapach
+	  sieciowych
+
+Ta dystrybucja Scotty zawiera tak¿e ¼ród³a Tkined. Jest to sieciowy
+edytor pozwalaj±cy rysowaæ mapy obrazuj±ce konfiguracjê sieci.
+Najwa¿niejsz± cech± Tkined jest programistyczny interfejs pozwalaj±cy
+aplikacjom zarz±dzaj±cym sieci± rozszerzaæ jego mo¿liwo¶ci. Wiêkszo¶æ
+aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
 
 %prep
 %setup -q -n %{name}-%{snap}
@@ -74,15 +98,15 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/mann/http.n
 
 gzip -9nf README license.terms
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 cd %{_libdir}/tkined%{tkined_version}/apps
 echo auto_mkindex . library.tcl | %{_bindir}/tclsh
 
 %preun
 rm -f %{_libdir}/tkined%{tkined_version}/apps/tclIndex
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
