@@ -8,5 +8,5 @@ Icon=tkined.png
 Exec=tkined
 Terminal=false
 Type=Application
-
+Categories=Utility;Network;
 # vi: encoding=utf-8
