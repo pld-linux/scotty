@@ -8,11 +8,11 @@ Version:	3.0.0
 Release:	0.%{snapdate}.1
 License:	Free
 Group:		Applications/Networking
-URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 Source0:	%{name}-%{snap}.tar.gz
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-install.patch
+URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= 8.2
 BuildRequires:	tk-devel >= 8.2
@@ -95,8 +95,6 @@ perl -pi -e "s|$RPM_BUILD_ROOT||g" \
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/http.n
 
-gzip -9nf README license.terms
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -109,7 +107,7 @@ rm -f %{_libdir}/tkined%{tkined_version}/apps/tclIndex
 
 %files
 %defattr(644,root,root,755)
-%doc {README,license.terms}.gz
+%doc README license.terms
 %attr(755,root,root) %{_bindir}/scotty*
 %attr(755,root,root) %{_bindir}/tkined*
 
