@@ -70,7 +70,7 @@ aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
 
 %build
 cd unix
-autoconf
+%{__autoconf}
 %configure
 %{__make} CFLAGS="%{rpmcflags}"
 
