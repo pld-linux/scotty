@@ -1,0 +1,11 @@
+--- scotty-00-02-21/unix/configure.in~	Sun Sep 22 08:59:28 2002
++++ scotty-00-02-21/unix/configure.in	Sun Sep 22 08:59:28 2002
+@@ -245,7 +245,7 @@
+     LIBS="$LIBS -lsocket -lnsl"
+ else
+     AC_CHECK_LIB(socket, connect, [LIBS="$LIBS -lsocket"])
+-    AC_CHECK_LIB(nsl, gethostbyname, [LIBS="$LIBS -lnsl"])
++    AC_CHECK_FUNC(gethostbyname, [], AC_CHECK_LIB(nsl, gethostbyname))
+ fi
+ 
+ AC_CHECK_LIB(z, main, [LIBS="$LIBS -lz"])
