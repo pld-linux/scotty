@@ -61,7 +61,7 @@ the Tnm Tcl extension.
 Scotty jest rozszerzeniem Tcl do budowania aplikacji do zarz±dzania
 sieci± przy u¿yciu Tcl (i Tk). Scotty udostêpnia nowe polecenia Tcl
 do:
- - wysy³ania i odbierania pakietów ICMP\
+ - wysy³ania i odbierania pakietów ICMP
  - odpytywania DNS
  - dostêpu do gniazdek UDP
  - testowania i u¿ywania niektórych Sun RPC
