@@ -5,7 +5,7 @@ Comment=An Interactive Network Editor based on Tk
 Comment[pl]=Interaktywny Edytor Sieciowy bazowany na Tk
 Icon=tkined.png
 Exec=tkined
-Terminal=0
+Terminal=false
 Type=Application
 
 # vi: encoding=utf-8
