@@ -2,6 +2,8 @@
 # TODO:
 # - remove all MIBs from scotty and add fix for use MIBs from
 #   /usr/share/mibs from libsmi (scotty depends on libsmi).
+# - move tkined to separate subpackage
+# - add icon for tkined
 #
 %define	snap		00-02-21
 %define	snapdate	20000221
@@ -10,11 +12,12 @@ Summary:	Tcl extension to build network management applications using Tcl (and T
 Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
-Release:	0.%{snapdate}.2
+Release:	0.%{snapdate}.3
 License:	Free
 Group:		Applications/Networking
 Source0:	%{name}-%{snap}.tar.gz
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
+Source1:	tkined.desktop
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-preamble_scripts_fixes.patch
@@ -89,6 +92,7 @@ cd unix
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Graphics/
 
 %{__make} -C unix \
 	install sinstall \
@@ -107,6 +111,7 @@ perl -pi -e "s|$RPM_BUILD_ROOT||g" \
 	$RPM_BUILD_ROOT%{_libdir}/{tkined%{tkined_version},tnm%{version}}/pkgIndex.tcl
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/http.n
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -129,6 +134,7 @@ rm -f %{_libdir}/tkined%{tkined_version}/apps/tclIndex
 
 %attr(-,root,root) %{_libdir}/tkined%{tkined_version}
 %attr(-,root,root) %{_libdir}/tnm%{version}
+%{_applnkdir}/Graphics/*.desktop
 
 %attr(755,root,root) %{_libdir}/*.so
 
