@@ -15,6 +15,7 @@ Source0:	%{name}-%{snap}.tar.gz
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-install.patch
+BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= 8.2
 BuildRequires:	tk-devel >= 8.2
 BuildRequires:	libsmi-devel >= 0.2.1
