@@ -12,7 +12,7 @@ Summary:	Tcl extension to build network management applications using Tcl (and T
 Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
-Release:	0.%{snapdate}.4
+Release:	0.%{snapdate}.5
 License:	Free
 Group:		Applications/Networking
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/devel/%{name}-%{snap}.tar.gz
@@ -30,7 +30,10 @@ BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.2
 BuildRequires:	tk-devel >= 8.2
 BuildRequires:	libsmi-devel >= 0.2.1
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_ulibdir	%{_prefix}/lib
 
 %description
 Scotty is a Tcl extension to build network management applications
@@ -86,18 +89,18 @@ aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
 
 %build
 cd unix
-%{__aclocal}
 %{__autoconf}
 %configure
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Graphics/
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
-%{__make} -C unix \
-	install sinstall \
-	DESTDIR=$RPM_BUILD_ROOT
+%{__make} -C unix install sinstall \
+	DESTDIR=$RPM_BUILD_ROOT \
+	LIB_RUNTIME_DIR=$RPM_BUILD_ROOT%{_libdir}
 
 cat << EOF > $RPM_BUILD_ROOT%{_bindir}/scotty
 #!/bin/sh
@@ -108,11 +111,11 @@ EOF
 
 ln -sf tkined%{tkined_version} $RPM_BUILD_ROOT%{_bindir}/tkined
 
-perl -pi -e "s|$RPM_BUILD_ROOT||g" \
+%{__perl} -pi -e "s|$RPM_BUILD_ROOT||g" \
 	$RPM_BUILD_ROOT%{_libdir}/{tkined%{tkined_version},tnm%{version}}/pkgIndex.tcl
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/mann/http.n
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Graphics/
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -131,10 +134,10 @@ rm -f %{_libdir}/tkined%{tkined_version}/apps/tclIndex
 %attr(755,root,root) %{_bindir}/tkined*
 %attr(4755,root,root) %{_bindir}/nmicmpd
 %attr(4755,root,root) %{_bindir}/nmtrapd
-%attr(755,root,root) %{_libdir}/*.so.*.*
-%attr(755,root,root) %{_libdir}/tkined%{tkined_version}
-%attr(755,root,root) %{_libdir}/tnm%{version}
-%{_applnkdir}/Graphics/*.desktop
+%attr(755,root,root) %{_libdir}/*.so
+%attr(755,root,root) %{_ulibdir}/tkined%{tkined_version}
+%attr(755,root,root) %{_ulibdir}/tnm%{version}
+%{_desktopdir}/*.desktop
 %{_mandir}/man1/*.1*
 %{_mandir}/man8/*.8*
 %{_mandir}/mann/*.*
