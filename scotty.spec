@@ -12,7 +12,7 @@ Summary:	Tcl extension to build network management applications using Tcl (and T
 Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
-Release:	0.%{snapdate}.3
+Release:	0.%{snapdate}.4
 License:	Free
 Group:		Applications/Networking
 Source0:	%{name}-%{snap}.tar.gz
