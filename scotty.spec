@@ -44,13 +44,13 @@ scotty.
 %build
 cd unix
 %configure
-make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
+%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 cd unix
-make install sinstall DESTDIR=$RPM_BUILD_ROOT
+%{__make} install sinstall DESTDIR=$RPM_BUILD_ROOT
 
 cat << EOF > $RPM_BUILD_ROOT%{_bindir}/scotty
 #!/bin/sh
