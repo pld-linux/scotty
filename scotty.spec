@@ -38,17 +38,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Scotty is a Tcl extension to build network management applications
 using Tcl (and Tk). The scotty extension provides new Tcl commands to
-
- - send and receive ICMP packets
- - query the Domain Name System (DNS)
- - access UDP sockets from Tcl
- - probe and use some selected SUN RPCs
- - retrieve and serve documents via HTTP
- - send and reveice SNMP messages (SNMPv1, SNMPv2C, SNMPv3)
- - write special purpose SNMP agents in Tcl
- - parse and access SNMP MIB definitions
- - schedule jobs that are to be done regularly
- - realize event driven programming on network maps
+- send and receive ICMP packets
+- query the Domain Name System (DNS)
+- access UDP sockets from Tcl
+- probe and use some selected SUN RPCs
+- retrieve and serve documents via HTTP
+- send and reveice SNMP messages (SNMPv1, SNMPv2C, SNMPv3)
+- write special purpose SNMP agents in Tcl
+- parse and access SNMP MIB definitions
+- schedule jobs that are to be done regularly
+- realize event driven programming on network maps
 
 This scotty distributions also includes the sources for Tkined. Tkined
 is a network editor which allows to draw maps showing your network
@@ -61,17 +60,17 @@ the Tnm Tcl extension.
 Scotty jest rozszerzeniem Tcl do budowania aplikacji do zarz±dzania
 sieci± przy u¿yciu Tcl (i Tk). Scotty udostêpnia nowe polecenia Tcl
 do:
- - wysy³ania i odbierania pakietów ICMP
- - odpytywania DNS
- - dostêpu do gniazdek UDP
- - testowania i u¿ywania niektórych Sun RPC
- - ¶ci±gania i serwowania dokumentów po HTTP
- - wysy³ania i odbierania komunikatów SNMP (v1, v2C, v3)
- - pisania agentów SNMP
- - parsowania i dostêpu do definicji SNMP MIB
- - kolejkowania zadañ do regularnego wykonywania
- - realizacji programowania sterowanego zdarzeniami na mapach
-   sieciowych
+- wysy³ania i odbierania pakietów ICMP
+- odpytywania DNS
+- dostêpu do gniazdek UDP
+- testowania i u¿ywania niektórych Sun RPC
+- ¶ci±gania i serwowania dokumentów po HTTP
+- wysy³ania i odbierania komunikatów SNMP (v1, v2C, v3)
+- pisania agentów SNMP
+- parsowania i dostêpu do definicji SNMP MIB
+- kolejkowania zadañ do regularnego wykonywania
+- realizacji programowania sterowanego zdarzeniami na mapach
+  sieciowych
 
 Ta dystrybucja Scotty zawiera tak¿e ¼ród³a Tkined. Jest to sieciowy
 edytor pozwalaj±cy rysowaæ mapy obrazuj±ce konfiguracjê sieci.
