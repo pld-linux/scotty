@@ -22,6 +22,7 @@ Patch3:		%{name}-no_libnsl.patch
 Patch4:		%{name}-do_not_check_tcl_tk_version.patch
 URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	tcl-devel >= 8.2
 BuildRequires:	tk-devel >= 8.2
 BuildRequires:	libsmi-devel >= 0.2.1
