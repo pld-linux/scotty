@@ -1,3 +1,8 @@
+#
+# TODO:
+# - remove all MIBs from scotty and add fix for use MIBs from
+#   /usr/share/mibs from libsmi (scotty depends on libsmi).
+#
 %define	snap		00-02-21
 %define	snapdate	20000221
 %define	tkined_version	1.5.0
@@ -5,13 +10,16 @@ Summary:	Tcl extension to build network management applications using Tcl (and T
 Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
-Release:	0.%{snapdate}.1
+Release:	0.%{snapdate}.2
 License:	Free
 Group:		Applications/Networking
 Source0:	%{name}-%{snap}.tar.gz
 #Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-install.patch
+Patch2:		%{name}-preamble_scripts_fixes.patch
+Patch3:		%{name}-no_libnsl.patch
+Patch4:		%{name}-do_not_check_tcl_tk_version.patch
 URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= 8.2
@@ -67,9 +75,13 @@ aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
 %setup -q -n %{name}-%{snap}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 cd unix
+%{__aclocal}
 %{__autoconf}
 %configure
 %{__make} CFLAGS="%{rpmcflags}"
