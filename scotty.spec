@@ -129,16 +129,12 @@ rm -f %{_libdir}/tkined%{tkined_version}/apps/tclIndex
 %doc README license.terms
 %attr(755,root,root) %{_bindir}/scotty*
 %attr(755,root,root) %{_bindir}/tkined*
-
 %attr(4755,root,root) %{_bindir}/nmicmpd
 %attr(4755,root,root) %{_bindir}/nmtrapd
-
-%attr(-,root,root) %{_libdir}/tkined%{tkined_version}
-%attr(-,root,root) %{_libdir}/tnm%{version}
+%attr(755,root,root) %{_libdir}/*.so.*.*
+%attr(755,root,root) %{_libdir}/tkined%{tkined_version}
+%attr(755,root,root) %{_libdir}/tnm%{version}
 %{_applnkdir}/Graphics/*.desktop
-
-%attr(755,root,root) %{_libdir}/*.so
-
-%{_mandir}/man1/*
-%{_mandir}/man8/*
-%{_mandir}/mann/*
+%{_mandir}/man1/*.1*
+%{_mandir}/man8/*.8*
+%{_mandir}/mann/*.*
