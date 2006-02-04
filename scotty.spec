@@ -12,7 +12,7 @@ Summary:	Tcl extension to build network management applications using Tcl (and T
 Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
 Name:		scotty
 Version:	3.0.0
-Release:	0.%{snapdate}.5
+Release:	0.%{snapdate}.6
 License:	Free
 Group:		Applications/Networking
 Source0:	ftp://ftp.ibr.cs.tu-bs.de/pub/local/tkined/devel/%{name}-%{snap}.tar.gz
@@ -24,6 +24,7 @@ Patch1:		%{name}-install.patch
 Patch2:		%{name}-preamble_scripts_fixes.patch
 Patch3:		%{name}-no_libnsl.patch
 Patch4:		%{name}-do_not_check_tcl_tk_version.patch
+Patch5:		%{name}-tcl8.4.patch
 URL:		http://wwwsnmp.cs.utwente.nl/~schoenw/scotty/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -85,6 +86,7 @@ aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p0
 
 %build
 cd unix
