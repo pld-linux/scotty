@@ -1,0 +1,34 @@
+--- tnm/generic/tnmInt.h
++++ tnm/generic/tnmInt.h
+@@ -36,7 +36,10 @@
+  */
+ 
+ #define TnmGetTime		TclpGetTime
++#if TCL_MAJOR_VERSION < 8 || TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION < 4
+ #define TnmCreateDirectory	TclpCreateDirectory
++#endif
++
+ #if TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION == 8 && TCL_RELEASE_SERIAL > 2 
+ #define TnmStat			TclStat
+ #else
+--- tnm/generic/tnmUtil.c
++++ tnm/generic/tnmUtil.c
+@@ -12,6 +12,18 @@
+ #include "tnmInt.h"
+ #include "tnmPort.h"
+ 
++#if TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION >= 4 || TCL_MAJOR_VERSION > 8
++int TnmCreateDirectory(char *path)
++{
++	Tcl_Obj *o;
++	int res;
++	o = Tcl_NewStringObj(path, -1);
++	Tcl_IncrRefCount(o);
++        res = Tcl_FSCreateDirectory(o);
++	Tcl_DecrRefCount(o);
++	return res;
++}
++#endif
+ 
+ /*
+  *----------------------------------------------------------------------
