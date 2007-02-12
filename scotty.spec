@@ -9,7 +9,7 @@
 %define	snapdate	20000221
 %define	tkined_version	1.5.0
 Summary:	Tcl extension to build network management applications using Tcl (and Tk)
-Summary(pl.UTF-8):   Rozszerzenie Tcl do budowania aplikacji zarządzających siecią
+Summary(pl.UTF-8):	Rozszerzenie Tcl do budowania aplikacji zarządzających siecią
 Name:		scotty
 Version:	3.0.0
 Release:	0.%{snapdate}.6
