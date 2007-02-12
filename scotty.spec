@@ -9,7 +9,7 @@
 %define	snapdate	20000221
 %define	tkined_version	1.5.0
 Summary:	Tcl extension to build network management applications using Tcl (and Tk)
-Summary(pl):	Rozszerzenie Tcl do budowania aplikacji zarz±dzaj±cych sieci±
+Summary(pl.UTF-8):   Rozszerzenie Tcl do budowania aplikacji zarzÄ…dzajÄ…cych sieciÄ…
 Name:		scotty
 Version:	3.0.0
 Release:	0.%{snapdate}.6
@@ -57,27 +57,27 @@ interface which allows network management applications to extend the
 capabilities of Tkined. Most applications for Tkined are written using
 the Tnm Tcl extension.
 
-%description -l pl
-Scotty jest rozszerzeniem Tcl do budowania aplikacji do zarz±dzania
-sieci± przy u¿yciu Tcl (i Tk). Scotty udostêpnia nowe polecenia Tcl
+%description -l pl.UTF-8
+Scotty jest rozszerzeniem Tcl do budowania aplikacji do zarzÄ…dzania
+sieciÄ… przy uÅ¼yciu Tcl (i Tk). Scotty udostÄ™pnia nowe polecenia Tcl
 do:
-- wysy³ania i odbierania pakietów ICMP
+- wysyÅ‚ania i odbierania pakietÃ³w ICMP
 - odpytywania DNS
-- dostêpu do gniazdek UDP
-- testowania i u¿ywania niektórych Sun RPC
-- ¶ci±gania i serwowania dokumentów po HTTP
-- wysy³ania i odbierania komunikatów SNMP (v1, v2C, v3)
-- pisania agentów SNMP
-- parsowania i dostêpu do definicji SNMP MIB
-- kolejkowania zadañ do regularnego wykonywania
+- dostÄ™pu do gniazdek UDP
+- testowania i uÅ¼ywania niektÃ³rych Sun RPC
+- Å›ciÄ…gania i serwowania dokumentÃ³w po HTTP
+- wysyÅ‚ania i odbierania komunikatÃ³w SNMP (v1, v2C, v3)
+- pisania agentÃ³w SNMP
+- parsowania i dostÄ™pu do definicji SNMP MIB
+- kolejkowania zadaÅ„ do regularnego wykonywania
 - realizacji programowania sterowanego zdarzeniami na mapach
   sieciowych
 
-Ta dystrybucja Scotty zawiera tak¿e ¼ród³a Tkined. Jest to sieciowy
-edytor pozwalaj±cy rysowaæ mapy obrazuj±ce konfiguracjê sieci.
-Najwa¿niejsz± cech± Tkined jest programistyczny interfejs pozwalaj±cy
-aplikacjom zarz±dzaj±cym sieci± rozszerzaæ jego mo¿liwo¶ci. Wiêkszo¶æ
-aplikacji dla Tkined jest pisana przy u¿yciu rozszerzenia Tnm dla Tcl.
+Ta dystrybucja Scotty zawiera takÅ¼e ÅºrÃ³dÅ‚a Tkined. Jest to sieciowy
+edytor pozwalajÄ…cy rysowaÄ‡ mapy obrazujÄ…ce konfiguracjÄ™ sieci.
+NajwaÅ¼niejszÄ… cechÄ… Tkined jest programistyczny interfejs pozwalajÄ…cy
+aplikacjom zarzÄ…dzajÄ…cym sieciÄ… rozszerzaÄ‡ jego moÅ¼liwoÅ›ci. WiÄ™kszoÅ›Ä‡
+aplikacji dla Tkined jest pisana przy uÅ¼yciu rozszerzenia Tnm dla Tcl.
 
 %prep
 %setup -q -n %{name}-%{snap}
