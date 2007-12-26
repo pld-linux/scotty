@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=tkined
 Name[pl]=tkined
 Comment=An Interactive Network Editor based on Tk
 Comment[pl]=Interaktywny Edytor Sieciowy bazowany na Tk
-Icon=tkined.png
+Icon=tkined
 Exec=tkined
 Terminal=false
 Type=Application
